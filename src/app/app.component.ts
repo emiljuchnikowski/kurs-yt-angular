@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgFor } from '@angular/common';
 
 import { COMPONENTS } from './components';
 
@@ -8,9 +9,19 @@ import { COMPONENTS } from './components';
     styleUrls: ['./app.component.scss'],
     standalone: true,
     imports: [
-      ...COMPONENTS
+      ...COMPONENTS,
+      NgFor
     ]
 })
 export class AppComponent {
   footerText = 'Zmienna w stopce';
+  messages = [
+    "Wiadomosc 1",
+    "Wiadomosc 2",
+    "Wiadomosc 3",
+  ];
+
+  onMessageAdd(msg: string): void {
+    this.messages.push(msg);
+  }
 }

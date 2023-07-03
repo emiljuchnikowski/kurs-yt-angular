@@ -1,3 +1,11 @@
 <h1>Kurs Angulara</h1>
 
+<app-message-add (add)="onMessageAdd($event)"></app-message-add>
+
+<ul>
+    <li *ngFor="let msg of messages">
+        {{ msg }}
+    </li>
+</ul>
+
 <app-footer [text]="footerText"></app-footer>
