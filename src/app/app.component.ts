@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, AsyncPipe } from '@angular/common';
 
 import { COMPONENTS } from './components';
+import { MessagesService } from './services';
 
 @Component({
     selector: 'app-root',
@@ -10,18 +11,14 @@ import { COMPONENTS } from './components';
     standalone: true,
     imports: [
       ...COMPONENTS,
-      NgFor
+      NgFor,
+      AsyncPipe
     ]
 })
 export class AppComponent {
   footerText = 'Zmienna w stopce';
-  messages = [
-    "Wiadomosc 1",
-    "Wiadomosc 2",
-    "Wiadomosc 3",
-  ];
 
-  onMessageAdd(msg: string): void {
-    this.messages.push(msg);
-  }
+  list$ = this.service.list$;
+
+  constructor(private service: MessagesService) {}
 }

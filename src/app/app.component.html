@@ -1,9 +1,9 @@
 <h1>Kurs Angulara</h1>
 
-<app-message-add (add)="onMessageAdd($event)"></app-message-add>
+<app-message-add></app-message-add>
 
 <ul>
-    <li *ngFor="let msg of messages">
+    <li *ngFor="let msg of list$ | async">
         {{ msg }}
     </li>
 </ul>
