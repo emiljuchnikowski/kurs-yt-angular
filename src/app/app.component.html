@@ -3,7 +3,7 @@
 <app-message-add></app-message-add>
 
 <ul>
-    <li *ngFor="let msg of list$ | async">
+    <li *ngFor="let msg of (list$ | async) | uniqueList : true">
         {{ msg }}
     </li>
 </ul>
