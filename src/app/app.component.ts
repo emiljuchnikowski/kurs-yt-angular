@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgFor, AsyncPipe } from '@angular/common';
 import * as _ from "lodash";
+import { Router, RouterModule } from '@angular/router';
  
 import { COMPONENTS } from './components';
 import { MessagesService } from './services';
@@ -14,6 +15,7 @@ import { PIPES } from './pipes';
     imports: [
       ...COMPONENTS,
       ...PIPES,
+      RouterModule,
       NgFor,
       AsyncPipe
     ]
@@ -23,7 +25,14 @@ export class AppComponent {
 
   list$ = this.service.list$;
 
-  constructor(private service: MessagesService) {}
+  constructor(
+    private service: MessagesService,
+    private router: Router
+  ) {}
+
+  onNavHome(): void {
+    this.router.navigate(["/home"]);
+  }
 
   getUniqueList(list: Array<string> | null): Array<string> | null {
     if (!list) return list;

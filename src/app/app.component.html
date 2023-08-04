@@ -1,5 +1,16 @@
 <h1>Kurs Angulara</h1>
 
+<ul>
+    <li>
+        <button (click)="onNavHome()">Strona główna</button>
+    </li>
+    <li>
+        <a [routerLink]="['/about']">O nas</a>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>
+
 <app-message-add></app-message-add>
 
 <ul>
