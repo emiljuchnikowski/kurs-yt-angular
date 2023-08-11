@@ -10,6 +10,10 @@ export const routes: Routes = [
         loadComponent: () => import("./pages/about/about.component").then(c => c.AboutComponent)
     },
     {
+        path: "messages/:body",
+        loadComponent: () => import("./pages/message/message.component").then(c => c.MessageComponent)
+    },
+    {
         path: "",
         redirectTo: "/home",
         pathMatch: "full"

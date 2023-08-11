@@ -15,7 +15,7 @@
 
 <ul>
     <li *ngFor="let msg of (list$ | async) | uniqueList : true">
-        {{ msg }}
+        <a [routerLink]="['/messages', msg]">{{ msg }}</a>
     </li>
 </ul>
 
